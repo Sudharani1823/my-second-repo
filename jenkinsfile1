@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME: "demoapp"
-        VERSION: "1.0"
+        APP_NAME - "demoapp",
+        VERSION = "1.0"
     }
 
     stages {
         stage('Build') {
             steps {
-            echo "Building Application ${App_name}"
-            echo "version ${Version}
+            echo "Building Application ${APP_NAME}"
+            echo "version ${VERSION}"
             }
         }
     }
