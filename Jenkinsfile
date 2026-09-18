@@ -7,13 +7,10 @@ pipeline {
         choice(
             name: 'ENVIRONMENT',
             choices: ['DEV', 'QA', 'PROD'],
-            description: 'Select deployment environment'
-        )
 
         booleanParam(
             name: 'RUN_TESTS',
             defaultValue: true,
-            description: 'Run tests?'
         )
     }
 
