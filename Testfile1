@@ -1,7 +1,5 @@
 pipeline {
     agent any
-
-}
     stages {
         stage('Build') {
             environment {
@@ -13,7 +11,7 @@ pipeline {
                 echo "Environment is ${ENV}"
             }
         }
-
+        } 
         stage('Test') {
             steps {
                 echo "Testing Application"
@@ -26,4 +24,3 @@ pipeline {
             }
         }
     }
-}
