@@ -10,8 +10,8 @@ pipeline {
                 echo "Building ${APP_NAME}"
                 echo "Environment is ${ENV}"
             }
-        }
-        } 
+            }
+    
         stage('Test') {
             steps {
                 echo "Testing Application"
