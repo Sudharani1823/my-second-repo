@@ -10,7 +10,7 @@ pipeline {
             }
             steps {
                 echo "Building ${APP_NAME}"
-                echo "Environment is ${ENV}
+                echo "Environment is ${ENV}"
             }
         }
 
