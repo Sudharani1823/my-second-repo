@@ -2,9 +2,12 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            environment {
-            APP_NAME = 'my-app'
-            ENV = 'dev'
+            parameters{
+                Choiice(
+                    Name: Environment
+                    choices: [dev,prod,qa]
+                    Descripion: 'Select the Environment'
+                )
             }
             steps {
                 echo "Building ${APP_NAME}"
