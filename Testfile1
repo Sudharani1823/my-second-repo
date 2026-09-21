@@ -5,7 +5,7 @@ pipeline {
             parameters{
                 Choiice(
                     Name: Environment
-                    choices: [dev,prod,qa]
+                    choice: [dev,prod,qa]
                     Descripion: 'Select the Environment'
                 )
             }
