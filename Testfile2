@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+        stages {
+            stage('Build'){
+                steps {
+                    script {
+                        try {
+                            echo "Building Application"
+                        } catch (Exception e) {
+                            echo "Build failed: ${e.getMessage()}"
+                          }
+                     }
+                }
+        
+            }
+            stage('Test'){
+            steps {
+                echo "Testing the Application"
+                }
+                }
+            stage('Deploy'){
+                steps {
+                echo "Deploying Application"
+                }
+            }
+        }
+}   
