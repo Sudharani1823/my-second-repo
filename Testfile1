@@ -3,15 +3,15 @@ pipeline {
     stages {
         stage('Build') {
             parameters{
-                Choiice(
-                    Name: Environment
-                    choice: [dev,prod,qa]
+                choice(
+                    Name: ENV
+                    choices: [dev,prod,qa]
                     Descripion: 'Select the Environment'
                 )
             }
             steps {
-                echo "Building ${APP_NAME}"
-                echo "Environment is ${ENV}"
+                echo "Building Application"
+                echo "Environment is ${params.ENV}"
             }
             }
     
