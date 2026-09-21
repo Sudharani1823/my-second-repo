@@ -1,17 +1,11 @@
 pipeline {
     agent any
-    parameters{
-                choice(
-                    name: 'ENV',
-                    choices: ['dev', 'prod', 'qa'],
-                    description: 'Select the Environment'
-                )
-            }
+    environment {
+        'ENV' = 'prod'
     stages {
         stage('Build') {
             steps {
                 echo "Building Application"
-                echo "Environment is ${params.ENV}"
             }
             }
     
@@ -24,7 +18,7 @@ pipeline {
         stage('Deploy') {
                 when {
                     expression {
-                        params.ENV == 'prod'
+                        env.ENV == 'prod'
                     }
                 }
                 steps {
