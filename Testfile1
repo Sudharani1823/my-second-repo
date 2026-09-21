@@ -22,7 +22,12 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
+                when {
+                    expression {
+                        params.ENV == 'prod'
+                    }
+                }
+                steps {
                 echo "Deploying application"
             }
         }
