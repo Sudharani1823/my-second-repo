@@ -1,14 +1,14 @@
 pipeline {
     agent any
-    stages {
-        stage('Build') {
-            parameters{
+    parameters{
                 choice(
                     Name: ENV
-                    choices: [dev,prod,qa]
+                    choices: ['dev', 'prod', 'qa']
                     Descripion: 'Select the Environment'
                 )
             }
+    stages {
+        stage('Build') {
             steps {
                 echo "Building Application"
                 echo "Environment is ${params.ENV}"
