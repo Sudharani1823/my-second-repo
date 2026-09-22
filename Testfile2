@@ -1,27 +1,29 @@
-pipeline {
+ pipeline {
     agent any
-        stages {
-            stage('Build'){
-                steps {
-                    script {
-                        try {
-                            echo "Building Application"
-                        } catch (Exception e) {
-                            echo "Build failed: ${e.getMessage()}"
-                          }
-                     }
-                }
-        
-            }
-            stage('Test'){
+
+    stages {
+        stage('Checkout') {
             steps {
-                echo "Testing the Application"
-                }
-                }
-            stage('Deploy'){
-                steps {
-                echo "Deploying Application"
-                }
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/feature/login']],
+                    userRemoteConfigs: [[
+                        url: 'git@github.com:Sudharani1823/practice-repo.git',
+                        credentialsId: 'github-ssh'
+                    ]]
+                ])
             }
         }
-}   
+
+        stage('Build') {
+            steps {
+                echo 'Build successful!'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Test successful!'
+            }
+        }
+    }
