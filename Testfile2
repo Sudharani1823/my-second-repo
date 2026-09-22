@@ -8,8 +8,8 @@
                     $class: 'GitSCM',
                     branches: [[name: '*/feature/login']],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/Sudharani1823/practice-repo.git',
-                        credentialsId: 'YOUR_CREDENTIAL_ID'
+                        url: 'git@github.com:Sudharani1823/practice-repo.git',
+                        credentialsId: 'github-ssh'
                     ]]
                 ])
             }
@@ -17,20 +17,13 @@
 
         stage('Build') {
             steps {
-                echo 'Build successful!'
+                echo 'Build successful'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Test successful!'
+                echo 'Test successful'
             }
         }
     }
-
-    post {
-        success {
-            echo 'Jenkins Build SUCCESSFUL'
-        }
-    }
-}
