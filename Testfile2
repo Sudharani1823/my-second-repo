@@ -8,8 +8,8 @@
                     $class: 'GitSCM',
                     branches: [[name: '*/feature/login']],
                     userRemoteConfigs: [[
-                        url: 'git@github.com:Sudharani1823/practice-repo.git',
-                        credentialsId: 'github-ssh'
+                        url: 'https://github.com/Sudharani1823/practice-repo.git',
+                        credentialsId: 'YOUR_CREDENTIAL_ID'
                     ]]
                 ])
             }
@@ -27,3 +27,10 @@
             }
         }
     }
+
+    post {
+        success {
+            echo 'Jenkins Build SUCCESSFUL'
+        }
+    }
+}
