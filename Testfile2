@@ -1,8 +1,12 @@
  pipeline {
     agent any
-
     stages {
         stage('Checkout') {
+             when {
+                expression {
+                    params.DO_CHECKOUT
+                  }
+             }
             steps {
                 checkout([
                     $class: 'GitSCM',
